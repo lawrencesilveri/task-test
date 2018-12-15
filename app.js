@@ -9,12 +9,15 @@ const config = require('./config/config');
 // connect to DB
 mongoose.connect(
   config.database,
+  // eslint-disable-next-line comma-dangle
   { useNewUrlParser: true }
 );
 const db = mongoose.connection;
+// eslint-disable-next-line no-console
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
-  console.log(`Connected successfullyl!`);
+  // eslint-disable-next-line no-console
+  console.log('Connected successfullyl!');
 });
 // Routes list
 const postsRouter = require('./routes/api/posts.routes');
