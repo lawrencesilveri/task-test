@@ -1,5 +1,5 @@
 module.exports = {
   /* eslint linebreak-style: ["error", "windows"] */
   /* eslint comma-dangle: ["error", "never"] */
-  database: 'mongodb://<larencesilveri>:<abc!23>@ds241578.mlab.com:41578/assignment'
+  database: 'mongodb://localhost:27017/assignment'
 };
