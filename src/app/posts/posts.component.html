@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="col-sm-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Create Post</div>
+      <div class="panel-body">
+        <form>
+          <div class="form-group">
+            <label for="text">Post</label
+            ><textarea
+              class="form-control"
+              id="text"
+              rows="4"
+              placeholder="Type your post here..."
+              [formControl]="text"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm" (click)="create()">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">Posts</div>
+      <div class="panel-body">
+        <div *ngIf="posts?.length > 0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Post</th>
+                <th>Created At</th>
+                <th>UpVotes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of posts">
+                <td>{{ post.text }}</td>
+                <td>{{ post.created_at | date }}</td>
+                <td>
+                  {{ post.upvotes }}
+                  <a class="btn btn-success btn-sm" (click)="upVote(post._id)"
+                    ><span><i class="fas fa-thumbs-up"></i></span
+                  ></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="posts?.length === 0"><span>No posts created yet...</span></div>
+      </div>
+    </div>
+  </div>
+</div>
